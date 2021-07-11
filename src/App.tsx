@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
-
+import Login from './pages/login';
+import CustomButton from './components/button/customButton';
+import { ThemeContext } from './context/ThemeContext';
 function App() {
+  const [defaultTheme, setDefaultTheme] = useState('dark');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>Welcome to task manager</h1>
+     <ThemeContext.Provider value={{defaultTheme, setDefaultTheme }}>
+     {/* <CustomButton isLogin={false} isSubmit={false} active={false} /> */}
+     <Login/>
+     </ThemeContext.Provider>
     </div>
   );
 }

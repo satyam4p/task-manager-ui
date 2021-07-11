@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { configureStore, history } from './redux/store';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={configureStore({})}>
+    <ConnectedRouter history={history}>
     <App />
-  </React.StrictMode>,
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
